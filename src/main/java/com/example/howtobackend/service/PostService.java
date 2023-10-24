@@ -22,14 +22,27 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
+    public void createPost(PostDto postDto) {
+        Post post = new Post();
+        post.setTitle(postDto.getTitle());
+        post.setContent(postDto.getContent());
+        postRepository.save(post);
+    }
+
+
     private PostDto convertToDto(Post post) {
         PostDto postDto = new PostDto();
-        postDto.setId(postDto.getId());
-        postDto.setTitle(postDto.getTitle());
+        postDto.setId(post.getId());
+        postDto.setTitle(post.getTitle());
         postDto.setContent(post.getContent());
         return postDto;
     }
 
-    public void createPost(PostDto postDto) {
-    }
+/*    private Post convertToEntity(PostDto postDto) {
+        Post post = new Post();
+        postDto.setId(post.getId());
+        postDto.setTitle(post.getTitle());
+        postDto.setContent(post.getContent());
+        return post;
+    }*/
 }
