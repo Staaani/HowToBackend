@@ -22,6 +22,8 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
+
+
     public void createPost(PostDto postDto) {
         Post post = new Post();
         post.setTitle(postDto.getTitle());
